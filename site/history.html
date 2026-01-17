@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTC Tomorrow - Prediction History</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Prediction History</h1>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="history.html">History</a>
+                <a href="performance.html">Performance</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>All Predictions</h2>
+                <div style="overflow-x: auto;">
+                    <table id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Target Date</th>
+                                <th>Predicted</th>
+                                <th>Actual</th>
+                                <th>Error %</th>
+                                <th>Model</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                Disclaimer: Not financial advice. For educational purposes only.
+            </p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Init logic for history page
+        window.addEventListener('DOMContentLoaded', () => {
+            loadPredictions((data) => {
+                renderHistoryTable(data);
+            });
+        });
+    </script>
+</body>
+
+</html>

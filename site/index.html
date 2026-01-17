@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTC Tomorrow - Bitcoin Price Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>BTC Tomorrow</h1>
+            <p>Daily AI-driven Bitcoin price predictions</p>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="history.html">History</a>
+                <a href="performance.html">Performance</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Prediction for Tomorrow</h2>
+                <div id="latest-prediction" class="prediction-display">
+                    <div class="date-subtitle" id="target-date">Loading...</div>
+                    <div class="price-large" id="predicted-price">...</div>
+                    <div class="model-info" id="model-name"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>How it works</h2>
+                <p>
+                    This system uses a simple linear regression model trained on daily OHLCV data.
+                    Predictions are generated daily at UTC 00:05.
+                </p>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                Disclaimer: Not financial advice. For educational purposes only.<br>
+                <a href="https://github.com/leone/btctomorrow" target="_blank">View on GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Data Loading Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            loadPredictions((data) => {
+                // updateHome is already called inside loadPredictions in app.js
+                // but we can also explicitly call it here if we refactor,
+                // but app.js currently says: "// Also update home if elements exist / updateHome(data);"
+                // Wait, if app.js calls it, and we call loadPredictions, it should work.
+            });
+        });
+    </script>
+</body>
+
+</html>
